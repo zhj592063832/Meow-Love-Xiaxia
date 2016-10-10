@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>对未来的憧憬</title>
+<link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+	<div class="header">
+	  <ul class="nav_list">
+	    <li class="nav_li">
+	      <a href="javascript:;" class="btn_nav" id="nav_more"><i class="ic_more png"></i>更多</a>
+	      <div class="more_nav" id="more_nav">
+	        <!--[if lt IE 9]>
+	        <span class="opc_bg"></span>
+	        <![endif]-->
+	        <i class="ic_bdot png" id="h_bdot"></i>
+	        <ul id="h_nav">
+	          <li>
+	            <a href="Home.html" class="btn_snav">首页</a>
+	          </li>
+	          <li>
+	            <a href="TimeShaft.html" class="btn_snav">时光轴</a>
+	          </li>
+	          <li>
+	            <a href="Dream.html" class="btn_snav">憧憬</a>
+	          </li>
+	          <li>
+	            <a href="LoveRecords.html" class="btn_snav">关于我们</a>
+	          </li>
+	          <li>
+	            <a href="TD.html" class="btn_snav">天刀</a>
+	          </li>
+	          <li>
+	            <a href="LOL.html" class="btn_snav">LOL</a>
+	          </li>
+	        </ul>
+	      </div>
+	    </li>
+	  </ul>
+	</div>
+	<div id="box">
+		<div class="front"></div>
+		<div class="back"></div>
+		<div class="top"></div>
+		<div class="bottom"></div>
+		<div class="left"></div>
+		<div class="right"></div>
+	</div>
+	<script src="js/jquery-1.11.2.min.js"></script>
+	<script src="js/MyJs.js"></script>
+	<script>
+	window.onload=function()
+	{
+		var oBox=document.querySelector('#box');
+
+		var y=-60;
+		var x=45;
+		oBox.onmousedown=function(ev)
+		{
+			var oEvent=ev||event;
+			var disX=oEvent.clientX-y;
+			var disY=oEvent.clientY-x;
+			document.onmousemove=function(ev)
+			{
+				var oEvent=ev||event;
+				x=oEvent.clientY-disY;
+				y=oEvent.clientX-disX;
+				oBox.style.transform='perspective(800px) rotateX('+x+'deg) rotateY('+y+'deg)';
+			};
+			document.onmouseup=function()
+			{
+				document.onmousemove=null;
+				document.onmouseup=null;
+			};
+			return false;
+		};
+	};
+</script>
+</body>
+</html>
